@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "saan-angular",
+      "public": "dist/saan-angular",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

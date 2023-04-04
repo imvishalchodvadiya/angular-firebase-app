@@ -1,0 +1,101 @@
+<!-- Start Topbar Mobile -->
+<div class="topbar-mobile">
+    <div class="row align-items-center">
+        <div class="col-md-12">
+            <div class="mobile-logobar">
+                <a href="index.html" class="mobile-logo"><img src="assets/images/logo.png" class="img-fluid" alt="logo"></a>
+            </div>
+            <div class="mobile-togglebar">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <div class="topbar-toggle-icon">
+                            <a class="topbar-toggle-hamburger" href="javascript:void();">
+                                <span class="iconbar">
+                                                <i class="ri-more-fill menu-hamburger-horizontal"></i>
+                                                <i class="ri-more-2-fill menu-hamburger-vertical"></i>
+                                            </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="menubar">
+                            <a class="menu-hamburger" (click)="mobileMenu($event)">
+                                <span class="iconbar">
+                                    <i class="ri-menu-2-line menu-hamburger-collapse"></i>
+                                    <i class="ri-close-line menu-hamburger-close"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Topbar -->
+<div class="topbar">
+    <!-- Start row -->
+    <div class="row align-items-center">
+        <!-- Start col -->
+        <div class="col-md-12 align-self-center">
+            <div class="togglebar">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <div class="menubar">
+                            <a class="menu-hamburger" href>
+                                <span class="iconbar">
+                                                <!-- <i class="ri-menu-2-line menu-hamburger-collapse"></i><i class="ri-close-line menu-hamburger-close"></i> -->
+                                            </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="javaScript:void();">
+                            <span>Support</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="javaScript:void();">
+                            <span>Manual</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="javaScript:void();">
+                            <span>Notifications</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="infobar togglebar">
+                <ul class="list-inline mb-0">
+                    <!-- <li class="list-inline-item">
+                        <div class="searchbar">
+                            <form>
+                                <div class="input-group">
+                                    <input type="search" class="form-control" placeholder="Search keyword" aria-label="Search" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn" type="submit" id="button-addon2"><i class="ri-search-line"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li> -->
+                    <li class="list-inline-item">
+                        <div class="profilebar">
+                            <div class="dropdown" [ngClass]="isOpen ? 'show' : ''">
+                                <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="open()"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">Admin </span></button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink" [ngClass]="isOpen ? 'show' : ''">
+
+                                    <a class="dropdown-item text-danger" (click)="onLogout()"><i class="ri-shut-down-line"></i>Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    <!-- End row -->
+</div>
+<!-- End Topbar -->

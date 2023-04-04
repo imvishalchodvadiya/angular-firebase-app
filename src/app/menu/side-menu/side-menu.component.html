@@ -1,0 +1,71 @@
+<!-- Start Leftbar -->
+<div class="leftbar">
+    <!-- Start Sidebar -->
+    <div class="sidebar">
+        <!-- Start Logobar -->
+        <div class="logobar">
+            <a href="index.html" class="logo logo-large"><img src="assets/images/logo.png" class="img-fluid" alt="logo"></a>
+            <h4 class="cms-title">SAAN CMS</h4>
+        </div>
+        <!-- End Logobar -->
+        <!-- Start Navigationbar -->
+        <div class="navigationbar">
+            <ul class="vertical-menu">
+                <li class="vertical-header">Menu</li>
+                <li [ngClass]="isOpen ? 'active' : ''">
+                    <a (click)="open()">
+                        <span>Dashboard</span><i class="ri-arrow-right-s-line"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href routerLink="/home" routerLinkActive="active">Overview</a></li>
+                        <li><a href>Reports</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <hr/>
+                </li>
+                <li>
+                    <a href>
+                        <span>Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href routerLink="/alluser" routerLinkActive="active">
+                        <span>User Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href routerLink="/managecontent" routerLinkActive="active">
+                        <span>Manage Content</span>
+                    </a>
+                </li>
+                <li>
+                    <a href routerLink="/manageuser" routerLinkActive="active">
+                        <span>Manage Users</span>
+                    </a>
+                </li>
+                <li class="vertical-header">
+                    <hr/>
+                </li>
+                <li>
+                    <a href>
+                        <span>Notificaitons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href>
+                        <span>Helps</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Navigationbar -->
+    </div>
+    <!-- End Sidebar -->
+</div>
+<!-- End Leftbar -->

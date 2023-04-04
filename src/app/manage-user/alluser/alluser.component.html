@@ -1,0 +1,30 @@
+<ngx-ui-loader></ngx-ui-loader>
+<!-- Start Breadcrumbbar -->
+<div class="breadcrumbbar">
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-8">
+            <h4 class="page-title">Overview</h4>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbbar -->
+<!-- Start Contentbar -->
+<div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+        <div class="col-lg-12 col-xl-4" *ngFor="let item of activeMemberData;let i = index;">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="media">
+                        <img class="align-self-center mr-3 rounded-circle" [src]="item.profile.userpic" [alt]="item.profile.name_profile" style="width: 50px;height: 50px;">
+                        <div class="media-body">
+                            <h5 class="mt-0 font-16">{{item.profile.name_profile}}</h5>
+                            <p>{{item.profile.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent acitve-member-btn"><a href [routerLink]="['/userprofile', item.id]" class="btn btn-outline-secondary">View Profile</a><a href="#" class="btn btn-outline-secondary">Send Message</a></div>
+            </div>
+        </div>
+    </div>
+</div>

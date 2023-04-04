@@ -1,0 +1,9 @@
+<body class="vertical-layout">
+    <div id="containerbar">
+        <app-side-menu *ngIf="isMenu"></app-side-menu>
+        <div [ngClass]="{'rightbar': isMenu}">
+            <app-top-menu *ngIf="isMenu"></app-top-menu>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</body>

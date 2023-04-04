@@ -1,0 +1,313 @@
+<ngx-ui-loader></ngx-ui-loader>
+
+<!-- Start Breadcrumbbar -->
+<div class="breadcrumbbar">
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-8">
+            <h4 class="page-title">Overview</h4>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbbar -->
+<!-- Start Contentbar -->
+<div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">Online User</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <div style="text-align:center">
+                                <apx-chart [series]="onlineUserChartOptions.series" [chart]="onlineUserChartOptions.chart" [xaxis]="onlineUserChartOptions.xaxis" [title]="onlineUserChartOptions.title"></apx-chart>
+                            </div>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{todayOnlineCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                Online Users Today
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">New User</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <apx-chart [series]="weeekNewUserChartOptions.series" [chart]="weeekNewUserChartOptions.chart" [xaxis]="weeekNewUserChartOptions.xaxis" [title]="weeekNewUserChartOptions.title" [colors]="weeekNewUserChartOptions.colors"></apx-chart>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{weekNewCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                New Users This Week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">Actively Week Users</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <apx-chart [series]="weeekOnlineUserChartOptions.series" [chart]="weeekOnlineUserChartOptions.chart" [xaxis]="weeekOnlineUserChartOptions.xaxis" [title]="weeekOnlineUserChartOptions.title" [colors]="weeekOnlineUserChartOptions.colors"></apx-chart>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{weekOnlineCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                Active Users This Week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+        <!-- Start col -->
+        <div class="col-md-12 col-lg-12 m-b-30">
+            <div class="row align-items-center">
+                <div class="col-md-8 col-lg-8">
+                    <h4 class="page-title">Opportunities</h4>
+                    <div class="title-line overview"> </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="widgetbar text-right">
+                        <a class="btn" routerLink="/addopportunities">
+                            <h3>Add <i class="fa fa-plus-circle mr-2"></i></h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-12">
+            <div class="card m-b-30">
+                <div class="row align-items-center">
+                    <div class="col-md-8 col-lg-8">
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="widgetbar text-right">
+                            <a class="btn" routerLink="/allopportunities">
+                                <h5>See All</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body row">
+                    <div class="col-lg-12 col-xl-3" *ngFor="let item of opportunityData; let i = index">
+                        <div class="card m-b-30" *ngIf="4 > i">
+                            <div class="card-body">
+                                <div class="row align-items-center no-gutters">
+                                    <img [src]="item.data.image" style="min-width: 100%;height: 120px;" />
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <h5 (click)="show(item.data)" style="cursor: pointer;">{{item.data.title}}</h5>
+                                <p>{{item.data.location}}</p>
+                                <div class="button-list">
+                                    <a type="button" class="btn btn-primary" [routerLink]="['/edit', item.id]">Edit</a><button type="button" class="btn btn-danger" (click)="onDelete(item.id)">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-9">
+                            <h5 class="card-title mb-0">Events</h5>
+                            <div class="title-line overview"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body row">
+                    <div class="col-lg-12 col-xl-5">
+                        <full-calendar [options]="calendarOptions"></full-calendar>
+                    </div>
+                    <div class="col-lg-12 col-xl-4">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-8">
+                                <h5 class="card-title mb-0">Upcoming Events</h5>
+                            </div>
+                            <div class="col-4">
+                                <a type="button" class="btn btn-outline-light text-muted btn-sm float-right font-12" routerLink="/allevents">See All</a>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr *ngFor="let item of eventData; let j = index">
+                                        <td (click)="showEventDisplayPopup(item.data)" style="cursor: pointer;" *ngIf="8 > j">{{item.data.title}}</td>
+                                        <td class="text-right" *ngIf="8 > j">{{item.data.date}}</td>
+                                        <td class="text-right" *ngIf="8 > j"><button type="button" class="btn btn-danger" (click)="onEventDelete(item.id)">Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-3">
+                        <div class="text-center align-items-center mt-5 add-event">
+                            <button type="button" class="btn" (click)="showEventAddCall()"><i class="fa fa-calendar-plus-o"></i></button>
+                            <h4>Create New Event</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    <!-- End row -->
+
+</div>
+<!-- End row -->
+<!-- The Modal -->
+<div class="modal fade show" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">{{ opptitle }}</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <img class="card-img-top" [src]="oppimage" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title font-18">{{ opptitle }}</h5>
+                        <p class="card-text">Company : {{company}}</p>
+                        <p class="card-text">Location : {{location}}</p>
+                        <p class="card-text">Core functions : {{core}}</p>
+                        <p class="card-text">Type : {{type}}</p>
+                        <p class="card-text">company Industry : {{companyIndustry}}</p>
+                        <p class="card-text">Seniority Level : {{senioritylevel}}</p>
+                        <p class="card-text" [innerHTML]="oppcontent"></p>
+                        <p class="card-text"><small class="text-muted">{{oppdate}}</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<div class="modal fade show" id="myModal" [style.display]="showEventAdd ? 'block' : 'none'">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Event</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card p-2">
+                    <form #addForm="ngForm" (submit)="addEventdb(addForm)" name="addOpportunity">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">Title*</label>
+                                <input type="text" class="form-control" [(ngModel)]="addEvent.title" id="title" placeholder="Title" #title="ngModel" name="title" required>
+                                <p *ngIf="title.invalid && (title.dirty || title.touched)" style="color:red"><span *ngIf="title.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Place*</label>
+                                <input type="text" class="form-control" id="place" placeholder="Place" [(ngModel)]="addEvent.place" id="place" placeholder="Place" #place="ngModel" name="place" required>
+                                <p *ngIf="place.invalid && (place.dirty || place.touched)" style="color:red"><span *ngIf="place.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Content*</label>
+                                <input type="text" class="form-control" id="location" placeholder="Content" [(ngModel)]="addEvent.content" id="content" #content="ngModel" name="content" required>
+                                <p *ngIf="content.invalid && (content.dirty || content.touched)" style="color:red"><span *ngIf="content.errors?.required">This field is required</span></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Date*</label>
+                                <input type="date" class="form-control" id="date" placeholder="Core functions" [(ngModel)]="addEvent.date" id="date" #date="ngModel" name="date" required>
+                                <p *ngIf="date.invalid && (date.dirty || date.touched)" style="color:red"><span *ngIf="date.errors?.required">This field is required</span></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Add image</label>
+                                <input type="file" class="form-control-file" name="image" [(ngModel)]="addEvent.image" id="image" #image="ngModel" (change)="onFileSelected($event)">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4"><br/></label>
+                                <button type="submit" class="btn btn-primary btn-lg"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoader"></span> Publish</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade show" id="myModal" [style.display]="showEventDisplay ? 'block' : 'none'">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">{{ eventtitle }}</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <img class="card-img-top" [src]="eventimage" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title font-18">{{ eventtitle }}</h5>
+                        <p class="card-text">Date : {{eventdate}}</p>
+                        <p class="card-text">Place : {{eventlocation}}</p>
+                        <p class="card-text">{{eventcontent}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal-backdrop fade show" [style.display]="showModal || showEventAdd || showEventDisplay ? 'block' : 'none'"></div>

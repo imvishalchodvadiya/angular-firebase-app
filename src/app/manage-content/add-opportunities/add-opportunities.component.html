@@ -1,0 +1,79 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div class="breadcrumbbar">
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-8">
+            <h1 class="page-title">Post new opportunity:</h1>
+        </div>
+    </div>
+</div>
+<div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-lg-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <form #addForm="ngForm" (submit)="add(addForm)" name="addOpportunity">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail4">Company*</label>
+                                <input type="text" class="form-control" [(ngModel)]="addOpp.company" id="company" placeholder="Company" #company="ngModel" name="company" required>
+                                <p *ngIf="company.invalid && (company.dirty || company.touched)" style="color:red"><span *ngIf="company.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputPassword4">Title*</label>
+                                <input type="text" class="form-control" id="title" placeholder="Title" [(ngModel)]="addOpp.title" id="title" placeholder="Title" #title="ngModel" name="title" required>
+                                <p *ngIf="title.invalid && (title.dirty || title.touched)" style="color:red"><span *ngIf="title.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputPassword4">Location*</label>
+                                <input type="text" class="form-control" id="location" placeholder="Location" [(ngModel)]="addOpp.location" id="location" #location="ngModel" name="location" required>
+                                <p *ngIf="location.invalid && (location.dirty || location.touched)" style="color:red"><span *ngIf="location.errors?.required">This field is required</span></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="inputPassword4">Core functions(select up to 3)*</label>
+                                <input type="text" class="form-control" id="core" placeholder="Core functions" [(ngModel)]="addOpp.core" id="core" #core="ngModel" name="core" required>
+                                <p *ngIf="core.invalid && (core.dirty || core.touched)" style="color:red"><span *ngIf="core.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">Type</label>
+                                <input type="text" id="inputState" class="form-control" [(ngModel)]="addOpp.type" id="type" #type="ngModel" name="type" placeholder="Type">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="inputPassword4">Company industry(select up to 3)*</label>
+                                <input type="text" class="form-control" id="company" placeholder="Company industry" [(ngModel)]="addOpp.companyIndustry" id="companyIndustry" #companyIndustry="ngModel" name="companyIndustry" required>
+                                <p *ngIf="companyIndustry.invalid && (companyIndustry.dirty || companyIndustry.touched)" style="color:red"><span *ngIf="companyIndustry.errors?.required">This field is required</span></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">Seniority level</label>
+                                <input type="text" id="inputState" class="form-control" [(ngModel)]="addOpp.senioritylevel" id="senioritylevel" #senioritylevel="ngModel" name="senioritylevel" placeholder="Seniority level">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Description</label>
+                                <ngx-wig [placeholder]="'Description'" name="description" [(ngModel)]="addOpp.description" id="description" #description="ngModel"></ngx-wig>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Add image</label>
+                                <input type="file" class="form-control-file" name="image" id="image" (change)="onFileSelected($event)"><img [src]="addOpp.image" [alt]="addOpp.title" style="width: 150px;margin-top:10px">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4"><br/></label>
+                                <button type="submit" class="btn btn-primary btn-lg"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoader"></span> Publish</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    <!-- End row -->
+</div>

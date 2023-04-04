@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "saan-app": {
+      "hosting": {
+        "saan-angular": [
+          "saan-app"
+        ]
+      }
+    }
+  }
+}

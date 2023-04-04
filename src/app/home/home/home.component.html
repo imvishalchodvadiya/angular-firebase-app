@@ -1,0 +1,213 @@
+<ngx-ui-loader></ngx-ui-loader>
+<!-- Start Breadcrumbbar -->
+<div class="breadcrumbbar">
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-8">
+            <h4 class="page-title">Overview</h4>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbbar -->
+<!-- Start Contentbar -->
+<div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">Online User</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <div style="text-align:center">
+                                <apx-chart [series]="onlineUserChartOptions.series" [chart]="onlineUserChartOptions.chart" [xaxis]="onlineUserChartOptions.xaxis" [title]="onlineUserChartOptions.title"></apx-chart>
+                            </div>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{todayOnlineCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                Online Users Today
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">New User</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <apx-chart [series]="weeekNewUserChartOptions.series" [chart]="weeekNewUserChartOptions.chart" [xaxis]="weeekNewUserChartOptions.xaxis" [title]="weeekNewUserChartOptions.title" [colors]="weeekNewUserChartOptions.colors"></apx-chart>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{weekNewCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                New Users This Week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            <p class="font-15">Actively Week Users</p>
+                        </div>
+                        <div class="col-12 text-right">
+                            <apx-chart [series]="weeekOnlineUserChartOptions.series" [chart]="weeekOnlineUserChartOptions.chart" [xaxis]="weeekOnlineUserChartOptions.xaxis" [title]="weeekOnlineUserChartOptions.title" [colors]="weeekOnlineUserChartOptions.colors"></apx-chart>
+                        </div>
+                        <div class="col-12 widget-bottom row">
+                            <div class="col-6 text-center">
+                                <h1>{{weekOnlineCount}}</h1>
+                            </div>
+                            <div class="col-6 pt-2">
+                                Active Users This Week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+        <!-- Start col -->
+        <div class="col-md-12 col-lg-12">
+            <h4 class="page-title">Product Overview</h4>
+        </div>
+        <div class="col-lg-12 col-xl-8">
+            <div class="card m-b-30">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-9">
+                            <h5 class="card-title mb-0">Total Membership</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body row">
+                    <div class="col-lg-12 col-xl-4">
+                        <div class="card m-b-30">
+                            <div class="card-body" style="background-color: #61D3D4;height: 141px;">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-12">
+                                        <h1 class="text-white">{{monthlyNewCount}}</h1>
+                                        <h5 class="text-white">Monthly New Members</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-4">
+                        <div class="card m-b-30">
+                            <div class="card-body" style="background-color: #5ACE39;height: 141px;">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-12">
+                                        <h1 class="text-white">{{monthlyActiveCount}}</h1>
+                                        <h5 class="text-white">Monthly Active Users</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-4">
+                        <div class="card m-b-30">
+                            <div class="card-body" style="background-color: #EBB763;height: 141px;">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-12">
+                                        <h1 class="text-white">{{activeMemberData.length}}</h1>
+                                        <h5 class="text-white">Total Membership</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-9">
+                            <h5 class="card-title mb-0">Members Information</h5>
+                            <div class="title-line overview"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="table-responsive">
+                            <table id="datatable" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of activeMemberData;let i = index;">
+                                        <td *ngIf="i < 5"><img [src]="item.profile.userpic" [alt]="item.profile.name_profile" width="35" alt="girl" style="width: 35px;height: 35px;border-radius: 50%;"></td>
+                                        <td *ngIf="i < 5">{{item.profile.name_profile}}</td>
+                                        <td *ngIf="i < 5"><i class="fa fa-envelope"></i> {{item.profile.email}}</td>
+                                        <td *ngIf="i < 5"><i class="fa fa-phone"></i> {{item.profile.phone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-6">
+                            <h5 class="card-title mb-0">Active Members</h5>
+                        </div>
+                        <div class="col-6 col-lg-6 text-right">
+                            <a href [routerLink]="['/alluser']" class="btn btn-outline-secondary">View all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-2">
+                            <tbody>
+                                <tr *ngFor="let item of activeMemberData;let i = index;">
+                                    <td *ngIf="i < 4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="media">
+                                                    <img class="align-self-center mr-3 rounded-circle" [src]="item.profile.userpic" [alt]="item.profile.name_profile" style="width: 50px;height: 50px;">
+                                                    <div class="media-body">
+                                                        <h5 class="mt-0 font-16">{{item.profile.name_profile}}</h5>
+                                                        <p>{{item.profile.email}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer bg-transparent acitve-member-btn"><a href="#" class="btn btn-outline-secondary" [routerLink]="['/userprofile', item.id]">View Profile</a><a href="#" class="btn btn-outline-secondary">Send Message</a></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    <!-- End row -->
+
+</div>
+<!-- End row -->
